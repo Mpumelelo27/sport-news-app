@@ -3,6 +3,10 @@ package com.lucasmpumelelomkhabela.sportsnewsapp.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Author LucasMpumeleloMkhabela
+ */
+
 public class SportNewsResponseModel {
 
     @SerializedName("Headline")
@@ -104,5 +108,4 @@ public class SportNewsResponseModel {
     @SerializedName("relatedArticles")
     @Expose
     public Object relatedArticles;
-
 }

@@ -4,13 +4,17 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
+import com.lucasmpumelelomkhabela.sportsnewsapp.fragments.SportsArticleFragment;
 import com.lucasmpumelelomkhabela.sportsnewsapp.fragments.SportsNewsFragments;
 
 public class MainActivity extends AppCompatActivity {
@@ -55,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.addToBackStack(backStack);
-        fragmentTransaction.replace(R.id.container_reset_pin, fragment, backStack);
+        fragmentTransaction.replace(R.id.sports_news_container, fragment, backStack);
         fragmentTransaction.commit();
     }
 
@@ -67,6 +71,29 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorGradientStart)));
         }
+    }
 
+    @Override
+    public void onBackPressed() {
+        validateOnBackPressed();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void validateOnBackPressed() {
+
+        if (getSupportFragmentManager().findFragmentById(R.id.sports_news_container) instanceof SportsArticleFragment) {
+            getSupportFragmentManager().popBackStack();
+            replaceFragment(new SportsNewsFragments(), SportsNewsFragments.TAG);
+        } else if (getSupportFragmentManager().findFragmentById(R.id.sports_news_container) instanceof SportsNewsFragments) {
+            this.finish();
+        }
     }
 }

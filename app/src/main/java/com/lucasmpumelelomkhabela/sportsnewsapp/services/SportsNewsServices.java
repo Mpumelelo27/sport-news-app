@@ -1,6 +1,5 @@
 package com.lucasmpumelelomkhabela.sportsnewsapp.services;
 
-import com.lucasmpumelelomkhabela.sportsnewsapp.Constance;
 import com.lucasmpumelelomkhabela.sportsnewsapp.models.SportArticleResponseModel;
 import com.lucasmpumelelomkhabela.sportsnewsapp.models.SportNewsResponseModel;
 
