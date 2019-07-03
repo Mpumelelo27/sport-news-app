@@ -57,7 +57,7 @@
         android:id="@+id/constraintLayoutTitle"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@color/colorTertiaryTint60"
+        tools:background="@color/colorTertiaryTint60"
         android:padding="@dimen/size_8dp"
         app:layout_constraintBottom_toBottomOf="@+id/guideline"
         app:layout_constraintHeight_percent="0.13"

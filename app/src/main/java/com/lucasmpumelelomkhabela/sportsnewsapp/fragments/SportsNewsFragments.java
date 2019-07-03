@@ -1,6 +1,7 @@
 package com.lucasmpumelelomkhabela.sportsnewsapp.fragments;
 
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -50,6 +51,8 @@ public class SportsNewsFragments extends BaseFragment {
     RecyclerView recyclerViewSportsItem;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
+    @BindView(R.id.constraintLayoutTitle)
+    ConstraintLayout constraintLayoutTitle;
 
     private List<SportNewsResponseModel> sportNewsResponseModelList;
     private SportsNewsAdapter sportsNewsAdapter;
@@ -86,6 +89,7 @@ public class SportsNewsFragments extends BaseFragment {
 
                     if (getActivity() == null) return;
                     recyclerViewSportsItem.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorInactiveText));
+                    constraintLayoutTitle.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorTertiaryTint60));
                     textViewSportName.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.oval_shape));
 
                     textViewSportName.setText(model.get(4).category);
